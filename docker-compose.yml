@@ -8,18 +8,12 @@ services:
       - 3000:3000
     volumes:
       - /app/node_modules
-      - web-data:/app
+      - .:/app
   tests:
     build:
       context: .
       dockerfile: Dockerfile.dev
     volumes:
       - /app/node_modules
-      - web-data:/app
+      - .:/app
     command: ["npm", "test"]
-
-volumes:
-  web-data:
-     driver: local-persist
-     driver_opts:
-       mountpoint: ${CONTAINERVOLUME}/web

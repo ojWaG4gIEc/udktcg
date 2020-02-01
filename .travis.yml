@@ -1,0 +1,10 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -t ojWaG4gIEc/udktcg -f Dockerfile.dev .
+
+script:
+  - docker run ojWaG4gIEc/udktcg npm run test -- --coverage
