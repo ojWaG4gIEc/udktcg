@@ -7,4 +7,4 @@ before_install:
   - docker build -t ojwag4giec/udktcg -f Dockerfile.dev .
 
 script:
-  - docker run ojwag4giec/udktcg npm run test -- --coverage
+  - docker run -e "CI=true" ojwag4giec/udktcg npm run test -- --coverage
