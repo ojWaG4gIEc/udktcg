@@ -1,0 +1,24 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -t ojwag4giec/udktcg -f Dockerfile.dev .
+
+script:
+  - docker run -e "CI=true" ojwag4giec/udktcg npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "ca-central-1"
+  app: "udktcg-chapter7"
+  env: "UdktcgChapter7-env"
+  bucket_name: "elasticbeanstalk-ca-central-1-535967235173"
+  bucket_path: "udktcg-chapter7"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
+  
