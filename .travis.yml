@@ -13,7 +13,7 @@ after_success:
   - docker build -t ojwag4giec/udktcg-nginx ./nginx
   - docker build -t ojwag4giec/udktcg-server ./server
   - docker build -t ojwag4giec/udktcg-worker ./worker
-  - echo "$DOCKER_PASSWORD" | docker login -u "DOCKER_ID" --pasword-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "DOCKER_ID" --password-stdin
   - docker push ojwag4giec/udktcg-client
   - docker push ojwag4giec/udktcg-nginx
   - docker push ojwag4giec/udktcg-server
