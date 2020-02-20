@@ -1,0 +1,37 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "client",
+      "image": "ojwag4giec/udktcg-client",
+      "hostname": "client",
+      "essential": false
+    },
+
+    {
+      "name": "server",
+      "image": "ojwag4giec/udktcg-server",
+      "hostname": "api",
+      "essential": false
+    },
+    {
+      "name": "worker",
+      "image": "ojwag4giec/udktcg-worker",
+      "hostname": "worker",
+      "essential": false
+    },
+
+    {
+      "name": "nginx",
+      "image": "ojwag4giec/udktcg-nginx",
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": ["client", "server"]
+    }
+  ]
+}
