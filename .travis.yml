@@ -14,11 +14,11 @@ deploy:
   region: "ca-central-1"
   app: "udktcg-chapter7"
   env: "UdktcgChapter7-env"
-  bucket_name: "elasticbeanstalk-ca-central-1-535967235173"
+  bucket_name: "elasticbeanstalk-ap-southeast-1-535967235173"
   bucket_path: "udktcg-chapter7"
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key:
     secure: "$AWS_SECRET_KEY"
-  
+
