@@ -10,8 +10,8 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <header>
-          {/* <img src={logo} className="App-logo" alt="logo" /> */}
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to react</h1>
           <Link to="/">Home</Link>
           <Link to="/otherpage">Other Page</Link>
