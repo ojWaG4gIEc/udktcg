@@ -19,3 +19,16 @@ after_success:
   - docker push ojwag4giec/udktcg-server
   - docker push ojwag4giec/udktcg-worker
 
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-southeast-1"
+  app: "multi-docker"
+  env: "MultiDocker-env"
+  bucket_name: "elasticbeanstalk-ap-southeast-1-535967235173"
+  bucket_path: "udktcg-chapter10"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
+
